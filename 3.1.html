@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Площа</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <style>
+  
+	input[type=button], input[type=submit], input[type=reset] {
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+}
+  </style>
+</head>
+<body>
+<div>
+	<center>
+		
+		<table>
+			<tr>
+				<td>
+					<form name="form1" align="left">
+			<input type="radio" name="sp" value="lc">Довжина кола<br>
+			<input type="radio" name="sp" value="sc">Площа круга<br>
+			<input type="radio" name="sp" value="vc">Обєм кулі<br>
+			<input type="number" name="input1" value="0"><br>
+			
+			<table border="1" bgcolor="white" width="150" height="30">
+				<tr>
+					<td>
+						<center id="result1">
+						</center>
+						
+					</td>
+				</tr>
+			</table>
+		</form>
+				</td>
+			</tr>
+			
+			
+		</table>
+		<input type="button" name="send" value="Calculate" onclick="Calc1(form1)">
+	</center>
+</div>
+	<script type="text/javascript">
+		
+
+
+
+
+		function Calc1(obj){
+			var result;
+			var R = obj.input1.value;
+			if(obj.input1.value <= 0 || obj.sp.value == ''){
+				result = "Incorrect data!"
+			}
+			else if( obj.sp.value == "lc"){
+				result = 2 * Math.PI * R;
+			}
+			else if( obj.sp.value == "sc"){
+				result = Math.PI * Math.pow(R,2);
+			}
+			else if( obj.sp.value == "vc"){
+				result = 4 / 3 * Math.PI * Math.pow(R,3);
+			}
+			document.getElementById('result1').innerHTML = result;
+		
+		}
+		
+	</script>
+</body>
+</html>
