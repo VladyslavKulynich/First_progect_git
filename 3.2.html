@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Площа</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <style>
+	input[type=button], input[type=submit], input[type=reset] {
+  
+  color: green;
+  padding: 32px 32px;
+  margin: 4px 4px;
+}
+  </style>
+</head>
+<body>
+<div >
+	<center>
+			
+		<table>
+			<tr>
+				<td>
+					
+						<input type="button" name="ch1" id="vc1" value="vc" onclick="Switch('vc')" >
+						<input type="button" name="ch2" id="cc1" value="cc" onclick="Switch('cc')"><br>
+			<form name="form22" align="left">
+			<input type="number" name="r" value="0"><br>
+			<input type="number" name="h" value="0"><br>
+			<table border="1" width="200" height="50">
+				<tr>
+					<td>
+						<center>
+							<div id="result">
+							</div>
+						</center>
+						
+					</td>
+				</tr>
+			</table>
+			<input type="button" name="send" value="Calculate" onclick="Calc2(form22)">
+			</form>
+				</td>
+			</tr>
+		</table>
+	</center>
+</div>
+	<script type="text/javascript">
+		var a = '';
+		function Switch(b){
+			a = b;
+			switch (b){
+				case 'vc':
+					document.getElementById('vc1').style.color = 'red';
+					document.getElementById('cc1').style.color = 'white';
+					break;
+				case 'cc':
+					document.getElementById('vc1').style.color = 'white';
+					document.getElementById('cc1').style.color = 'red';
+			}
+		}
+		function Calc2(obj){
+			var result;
+			var R = obj.r.value;
+			var H = obj.h.value;
+			if(obj.r.value <= 0 || obj.h.value <= 0 || a == ''){
+				result = "Incorrect data!"
+			}
+			else if( a == "vc"){
+				result = 1 / 3 * Math.PI * Math.pow(R,2) * H;
+			}
+			else if( a == "cc"){
+				result = Math.PI * Math.pow(R,2) * H;
+			}
+			document.getElementById('result').innerHTML = result;
+		}
+		
+	</script>
+</body>
+</html>
